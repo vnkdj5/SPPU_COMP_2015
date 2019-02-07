@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script>
+	var app=angular.module("CurConvert",[]);
+	app.controller("CurCtrl" ,function($scope)
+		{
+			$scope.rs=0;
+			$scope.dollor=0;
+		});
+
+	</script>
+	<style type="text/css">
+.converter{
+	text-align: center;
+	width: 400px;
+	height: auto;
+	margin: 20px;
+	padding: 10px;
+	border: black solid 5px;
+	border-radius: 5px;
+	background-color: #3CBC8D;
+    color: white;
+	}
+input[type=number]{
+		height: 25px;
+		width: 50%;
+		text-align: right;
+		box-sizing: border-box;
+		margin: 5px;
+	}
+	input[type=number]:focus {
+    border: 3px solid #555;
+}
+	label{
+		padding: 12px 12px 12px 0;
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    font-weight: bold;
+	}
+
+	</style>
+</head>
+<body>
+<div ng-app="CurConvert" ng-controller="CurCtrl">
+<div class="converter">
+<form>
+<h1>Currency Converter</h1>
+<div>
+<label>RS</label>
+<input type="number" ng-model="rs" placeholder="Amount in RS" ng-keyup="dollor=rs/64">
+</div>
+<div>
+<label>Dollor</label>
+	<input type="number" ng-model="dollor" placeholder="Anount in $$" ng-keyup="rs=dollor*64">
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>

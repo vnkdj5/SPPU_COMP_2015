@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Seminar Registration</title>
+</head>
+<style type="text/css">
+	th{
+		text-align: right;
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
+	td
+	{
+		padding-bottom: 10px;
+	}
+	select, option
+	{
+		width:50%;
+		height:30px;
+		padding:6px;
+
+	}
+	input
+	{
+		padding: 5px;
+		height:auto;
+	}
+	input[type=number]:focus ,input[type=text]:focus,input[type=email]:focus{
+    background-color: #f5f5f5;
+}
+.form1
+{
+	display: block;
+	width:50%;
+	border: 1px;
+	padding: 8px;
+	margin: 5px;
+	border: 2px solid gray;
+    border-radius: 5px;
+    background: url('mountain.jpg');
+}
+.btn
+	{
+		margin: 5px;
+		font-size: 1em;
+		padding: 10px;
+		margin-left: 0;
+		border-radius: 5px;
+		height: auto;
+		width: 50%;
+		border:0px;
+		text-decoration: none;
+		 background-color: #4CAF50;
+    color: white;
+	}
+	.btn:hover
+	{
+		margin: 5px;
+		font-size: 1em;
+		padding: 10px;
+		margin-left: 0;
+		border-radius: 5px;
+		height: auto;
+		width: 50%;
+		cursor:pointer;
+		border:2px solid #4CAF50;
+		text-decoration: none;
+		 background-color: white;
+    color: #4CAF50;
+	}
+	.btn1
+	{
+		margin: 5px;
+		font-size: 1em;
+		padding: 10px;
+		border-radius: 5px;
+		height: auto;
+		text-decoration: none;
+		 background-color: hotpink;
+    color: white;
+	}
+</style>
+<body>
+<h1>Seminar Registration</h1>
+
+<div>
+	<form action="payment.html" method="GET" class="form1" onsubmit="return validate()">
+	<table width="100%">
+		<tr><th>Enter Your Name</th><td><input type="text" required name="name" id="name" ></td></tr>
+		<tr><th>Enter Email</th><td><input type="email" required name="email_id" id="email_id" ></td></tr>
+		<tr><th>Enter Mobile Number</th><td><input type="number" required name="mobile" id="mobile" ></td></tr>
+		<tr><th>Select Designation</th><td><select name="designation">
+										<option value = "Student"> Student </option>
+										<option value = "Professor"> Professor </option>
+										<option value = "Corporate"> Corporate </option>
+									</select></td></tr>
+		</tr>
+		<tr><th>Select Country</th><td><select name="designation">
+										<option value = "India"> India </option>
+										<option value = "USA"> USA </option>
+										<option value = "Japan"> Japan </option>
+									</select></td></tr>
+		</tr>
+		<tr><th><input class="btn1" type="reset" value="Reset" ></th><td><input class="btn" type="submit" value="Book Now"></td></tr>
+
+	</table>
+	</form>
+</div>
+
+<script type="text/javascript">
+	function validate()
+	{
+		var name=document.getElementById("name").value;
+		
+		if(!(/^[a-zA-Z ]+$/.test(name)))
+		{
+			alert("Enter Correct Name");
+			return false;
+		}
+ 		var mobile=document.getElementById("mobile").value;
+ 		if(!(/^[987]{1}\d{9}/.test(mobile))) //regex for indian mobile number //for all other simply use /\d{10}/
+ 		{
+ 			alert("Invalid Mobile Number");
+ 			return false;
+ 		}
+			var emailID=document.getElementById("email_id").value;
+		 atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.getElementById("email_id").focus() ;
+            return false;
+         }
+		return true;
+	}
+
+</script>
+</body>
+</html>

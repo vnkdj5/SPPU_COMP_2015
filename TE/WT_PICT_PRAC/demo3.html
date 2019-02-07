@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<center><h1>ASSIGNMENT 3</h1></center>
+<style>
+
+xyz{
+	text-align : center;
+	font-family: verdana;
+    font-size: 20px;
+	
+	}
+	div {
+    background-color: lightblue;
+	margin-top: 50px;
+    
+    margin-right: 150px;
+    margin-left: 150px;
+	}
+
+	</style>
+</head>
+
+
+	<body  style="background-color:DodgerBlue;">
+		<xyz>
+		<div>
+			<form method= "POST" onsubmit ="return result()" >
+				Enter Name:<br>
+				<input type="text" id = "namex" placeholder = "Name"  required><br><br>
+				IOT <br>
+				<input type="number" id = "iotx" placeholder = "iot" min= "0" max = "100" required><br><br>
+				SMD <br>
+				<input type="number" id = "smdx" placeholder = "smd" min= "0" max = "100" required><br><br>
+				WTL <br>
+				<input type="number" id = "wtlx" placeholder = "wtl" min= "0" max = "100" required><br><br>
+				SPOS <br>
+				<input type="number" id = "sposx" placeholder = "spos" min= "0" max = "100" required><br><br>
+				DAA <br>
+				<input type="number" id = "daax" placeholder = "daa" min= "0" max = "100" required><br><br>
+				
+				SUBMIT:<br>
+				<input type ="submit" id = "submit" value  ="submit">
+				
+		
+			</form>
+		</div>
+		</xyz>
+		
+		<table id = "t1" align  = "center">
+		<tr><th>Name</th><th>WTL</th><th>SMD</th><th>SPOS</th><th>IOT</th><th>DAA</th><th>Total</th><th>Percentage</th></tr>
+		</table>
+		<script type = "text/javascript">
+		function result()
+		{
+		
+			var str = document.getElementById("t1").innerHTML;
+			var s = document.getElementById("namex").value;
+			var one = parseInt(document.getElementById("iotx").value);
+			var two = parseInt(document.getElementById("smdx").value);
+			var three = parseInt(document.getElementById("wtlx").value);
+			var four = parseInt(document.getElementById("sposx").value);
+			var five = parseInt(document.getElementById("daax").value);
+			var total = one+two+three+four+five;
+			var percentage = total/5;
+			var record="<tr><td>"+s+"</td><td>"+one+"</td><td>"+two+"</td><td>"+three+"</td><td>"+four+"</td><td>"+five+"</td><td>"+total+"</td><td>"+percentage+"%</td></tr>";
+			str = str+record;
+			document.getElementById("t1").innerHTML=str;
+			return false;
+
+		}
+		
+		</script>
+	</body>
+
+</html>

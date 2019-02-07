@@ -1,0 +1,8 @@
+Struts LINK 
+
+
+https://www.javatpoint.com/steps-to-create-struts-2-application-example
+
+
+Another one Only for Logic(USE FORMAT OF FIRST LINK .e.g. web.xml and struts.xml)
+http://www.srikanthtechnologies.com/blog/java/gs_struts2.aspx

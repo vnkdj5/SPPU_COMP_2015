@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src ="jquery-3.3.1.js"></script>
+</head>
+<body>
+<fieldset>
+<form align = "centre" id = "form1"> <p>
+<input type = "text" name = "name" placeholder="name"> </input></p><p>
+<input type = "text" name = "address" placeholder="address"> </input></p> <p>
+<input type = "text" name = "gender" placeholder="gender"> </input></p><p>
+<input type = "text" name = "city" placeholder="city"> </input></p><p>
+<legend> Language </legend>
+<select name="language" form="form1">
+  <option value="English">English</option>
+  <option value="Hindi">Hindi</option>
+  <option value="Tamil">Tamil</option>
+  <option value="Telugu">Telugu</option>
+</select>
+</p><p>
+<button onclick="xmlParse()" type="button">submit</button>
+</p><p>
+<input type="reset" value="Reset">
+</p>
+</form>
+</fieldset>
+<script>
+function xmlParse(){
+var parser, xmlDoc;
+var text = "<?xml version = '1.0' encoding='UTF-8'?>"+ "<customer>" +
+"<name>Default</name>" +
+"<address>Default</address>" +
+"<gender>Default</gender>" +
+"<language>Default</language>" +
+"<city>Default</city>" + "</customer>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text,"text/xml");
+xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue = document.getElementsByName("name")[0].value;
+xmlDoc.getElementsByTagName("address")[0].childNodes[0].nodeValue = document.getElementsByName("address")[0].value;
+xmlDoc.getElementsByTagName("gender")[0].childNodes[0].nodeValue = document.getElementsByName("gender")[0].value;
+xmlDoc.getElementsByTagName("language")[0].childNodes[0].nodeValue = document.getElementsByName("language")[0].value;
+xmlDoc.getElementsByTagName("city")[0].childNodes[0].nodeValue = document.getElementsByName("city")[0].value;
+var xmlString = new XMLSerializer().serializeToString(xmlDoc);
+alert(xmlString);
+download("samridhi.xml", xmlString);
+}
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/xml;charset=utf-8,' + text);
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  //	document.body.removeChild(element);
+}
+</script>
+</body>
+</html>
+

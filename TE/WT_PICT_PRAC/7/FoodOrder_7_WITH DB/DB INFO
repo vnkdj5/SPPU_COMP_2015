@@ -1,0 +1,40 @@
+MariaDB [mysql]> create user 'vaibhav'@'%' identified by '';
+Query OK, 0 rows affected (0.11 sec)
+
+MariaDB [mysql]> grant all privileges on tnp_db.* to 'vaibhav'@'%';
+Query OK, 0 rows affected (0.02 sec)
+
+MariaDB [mysql]> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mysql]> use tnp_db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [tnp_db]> select * from orderDetails;
++---------------+-------------+
+| order_id      | order_total |
++---------------+-------------+
+| 1523280107822 |        3440 |
++---------------+-------------+
+
+
+MariaDB [tnp_db]> create table order_info (order_id varchar(13), item_name varchar(20), item_total int, item_quantity int);
+Query OK, 0 rows affected (0.38 sec)
+
+
+MariaDB [tnp_db]> desc order_details;
+ERROR 1146 (42S02): Table 'tnp_db.order_details' doesn't exist
+MariaDB [tnp_db]> desc order_info;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| order_id      | varchar(13) | YES  |     | NULL    |       |
+| item_name     | varchar(20) | YES  |     | NULL    |       |
+| item_total    | int(11)     | YES  |     | NULL    |       |
+| item_quantity | int(11)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+

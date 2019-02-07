@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PICT canteen || Order Food</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            label{
+                height:30px;
+                letter-spacing: 2px;
+                font-size: 18px;
+                width: 100%;	}
+            input
+            {
+              
+                height:30px;
+                font-size: 18px;
+            }
+
+            .form1
+            {
+                display: block;
+                width:50%;
+                border: 1px;
+                padding: 8px;
+                margin: 5px;
+                border: 2px solid gray;
+                border-radius: 5px;
+                background: url('mountain.jpg');
+            }
+            .btn1
+            {
+                height: 30px;
+                margin: 5px;
+                padding: 8px;
+                font-weight: bold;
+                background-color: #4CAF50;
+                color: white;
+
+            }
+            h1
+            {
+                color: #4CAF50;
+            }
+            </style>
+            </head>
+            <body>
+                <h1>Accept Order</h1>
+                
+                <form method="POST" class="form1" action="generateBill.jsp" onchange="return calculateTotal()">
+                    <p>
+                        <label>Name*</label>
+                        <input type="text" name="uname" required/>
+                    </p>
+                    <p>
+                        <label>Email Id*</label>
+                        <input type="email" name="email_id" required/>
+                    </p>
+                    <h3>Menu</h3>
+                    <table width="100%">
+                        <tr><th>Item Name</th><th>Quantity</th><th>Cost</th><th>Total</th></tr>
+                        <tr>
+                            <td>Burger<input type="hidden" name="itemName" value="Burger-25"></td>
+                            <td><input type="number" name="itemCount"   placeholder="0" onsubmit="return calculateTotal()"></td>
+                            <td class="itemPrice">25</td>
+                            <td><input type="number" name="itemTotal" value="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>Cold Coffee<input type="hidden" name="itemName" value="Cold Coffee-20"></td>
+                            <td><input type="number" name="itemCount" placeholder="0"></td>
+                            <td class="itemPrice">20</td>
+                            <td><input type="number" name="itemTotal" value="0" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td>Samosa<input type="hidden" name="itemName" value="Samosa-20"></td>
+                            <td><input type="number" name="itemCount" placeholder="0"></td>
+                            <td class="itemPrice">20</td>
+                            <td><input type="number" name="itemTotal" value="0" placeholder="0"></td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td><input type="number" name="total" id="total" placeholder="0"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><input type="submit" name="sbmit" value="Place Order"></td>
+                        </tr>
+                    </table>
+               
+            </form>
+                <script>
+                    function calculateTotal()
+                    {
+                        var itemPs=document.getElementsByClassName("itemPrice");
+                       var final=0;
+                        for(var i=0;i<itemPs.length;i++)
+                        {
+                            var cost=parseInt(document.getElementsByClassName("itemPrice")[i].innerHTML);
+                            
+                            var quantity=parseInt(document.getElementsByName("itemCount")[i].value);
+                           // alert(cost +"  "+quantity);
+                           var total=cost*quantity;
+                           final=final+total;
+                            document.getElementsByName("itemTotal")[i].value=total;
+                        }
+                        document.getElementById("total").value=final;
+                        return true;
+                    }
+                    </script>
+            </body>
+            </html>

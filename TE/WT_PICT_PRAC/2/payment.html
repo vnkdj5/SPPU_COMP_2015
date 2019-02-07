@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	th{
+		text-align: left;
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
+	td
+	{
+		padding-bottom: 10px;
+	}
+	select, option
+	{
+		width:50%;
+		height:30px;
+		padding:6px;
+
+	}
+	input
+	{
+		padding: 5px;
+		height:auto;
+	}
+	input[type=number]:focus ,input[type=text]:focus,input[type=email]:focus{
+    background-color: #f5f5f5;
+}
+.form1
+{
+	display: block;
+	width:25%;
+	border: 1px;
+	padding: 8px;
+	margin: 5px;
+	border: 2px solid gray;
+    border-radius: 5px;
+    background: url('mountain.jpg');
+}
+.btn
+	{
+		margin: 5px;
+		font-size: 1em;
+		padding: 10px;
+		margin-left: 0;
+		border-radius: 5px;
+		height: auto;
+		width: 50%;
+		text-decoration: none;
+		 background-color: #4CAF50;
+    color: white;
+	}
+	.btn1
+	{
+		margin: 5px;
+		font-size: 1em;
+		padding: 10px;
+		border-radius: 5px;
+		height: auto;
+		text-decoration: none;
+		 background-color: hotpink;
+    color: white;
+	}
+</style>
+</head>
+<body>
+<h1>Payment</h1>
+
+<div>
+	<form action="" method="GET" class="form1" onsubmit="return validate()">
+	<table width="60%">
+	<tr><th colspan="2">Enter Your Name</th></tr>
+		<tr><th colspan="2"><input type="text" required name="name" id="name" placeholder="Name on card"></th></tr>
+		<tr><th colspan="2">Enter Card No</th></tr>
+		<tr><th colspan="2"><input type="number" required name="card" id="card" placeholder="1234 1234 1234 1234"></th></tr>
+		<tr><th>Enter Expiry Date</th><th>CVV Code</th></tr>
+		<tr><th><input type="text" required name="exdate" id="exdate" placeholder="YYYY/DD"  ></th><td><input type="number" required name="cvv" id="cvv" placeholder="123" min="100" max="999" ></td></tr>
+		
+		<tr><td colspan="2"><input class="btn" type="submit" value="Book Now"></td></tr>
+
+	</table>
+	</form>
+</div>
+<script type="text/javascript">
+	function validate()
+	{
+		var name=document.getElementById("name").value;
+		
+		if(!(/^[a-zA-Z ]+$/.test(name)))
+		{
+			alert("Enter Correct Name");
+			return false;
+		}
+		var card=document.getElementById("card").value;
+		if(!(/\d{16}/.test(card)))
+		{
+			alert("Enter Valid Card Number");
+			return false;
+			document.getElementById("card").focus;
+		}
+		var expdate=document.getElementById("exdate").value;
+		if(!(/^\d{4}\/\d{1,2}$/.test(expdate)))
+		{
+			alert("The expiration date must be YYYY/MM");
+			return false;
+		}
+		 var sections = expdate.split('/');
+		 if (sections.length !== 2)
+		 {
+		 	alert("The Expiration Date is not valid");
+		 	return false;
+		 }
+
+ 		var year= parseInt(sections[0], 10),
+        month= parseInt(sections[1], 10),
+        currentMonth = new Date().getMonth() + 1,
+        currentYear  = new Date().getFullYear();
+
+        if (month <= 0 || month > 12 || year > currentYear + 10) { //expiry date is not greater than 10 years
+            alert('The expiration date is not valid');
+            return false;                      
+        }
+
+        if (year < currentYear || (year == currentYear && month < currentMonth)) {
+        alert('The card is expired');
+        return false;
+         }		 
+	}
+</script>
+</body>
+</html>

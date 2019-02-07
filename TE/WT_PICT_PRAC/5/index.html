@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Department Wise salary Calculation</title>
+</head>
+<style type="text/css">
+table{
+	border-spacing: 0px;
+}
+	td,tr,th{
+		text-align: center;
+		border: 1px solid black;
+		padding: 5px;
+		margin: 5px;
+		
+	}
+</style>
+<body>
+<h3 style="color:red;">Note: Run in Mozilla Firefox</h3>
+<h1>employee.xml File's Data</h1>
+<table id="emptable" width="60%" >
+<tr><th>ID</th><th>Name</th><th>Department</th><th>Salary</th></tr>
+</table>
+
+<h2>Average Salary Department Wise</h2>
+<table id="avgSalary" width="60%">
+	<th>Department</th><th>Employee Count</th><th>Average Salary</th>
+
+</table>
+<script type="text/javascript">
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange= function()
+	{
+		if (this.readyState==4 && this.status==200) {
+			processFile(this);
+		}
+	};
+	//Note: You will not see any output in chrome, So switch to mozilla firefox for Run this folder on PHP APAche Server or any // server and give path as http url to below method e.g. http://localhost/5/emploee.xml
+	xhttp.open("GET", "employee.xml", true);
+	xhttp.send();
+
+	function processFile(xml)
+	{
+		var xmlDoc=xml.responseXML;
+		var table=document.getElementById("emptable").innerHTML;
+		var empArray=xmlDoc.getElementsByTagName("employee");
+		var salComp=0,salMech=0,salGaming=0;
+		var cntComp=0,cntMech=0,cntGaming=0;
+		for(var i=0;i<empArray.length;i++)
+		{
+			var name=empArray[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			var id=empArray[i].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+			var salary=parseInt(empArray[i].getElementsByTagName("salary")[0].childNodes[0].nodeValue);
+			var department=empArray[i].getElementsByTagName("department")[0].childNodes[0].nodeValue;
+			switch(department)
+			{
+				case "Computer":
+					cntComp++;
+					salComp=salComp+salary;
+					break;
+				case "Mechanical":
+					cntMech++;
+					salMech=salMech+salary;
+					break;
+				case "Gaming":
+					cntGaming++;
+					salGaming=salGaming+salary;
+					break;
+
+
+
+			}
+			
+			table=table+"<tr><td>"+id+"</td><td>"+name+"</td><td>"+department+"</td><td>"+salary+"</td></tr>";
+		}
+		
+		document.getElementById("emptable").innerHTML=table;
+
+		salComp=salComp/cntComp;
+		salMech=salMech/cntMech;
+		salGaming=salGaming/cntGaming;
+		var table2=document.getElementById("avgSalary").innerHTML;
+		table2=table2+"<tr><td>Computer</td><td>"+cntComp+"</td><td>"+salComp+"</td></tr>";
+		table2=table2+"<tr><td>Mechanical</td><td>"+cntMech+"</td><td>"+salMech+"</td></tr>";
+		table2=table2+"<tr><td>Gaming</td><td>"+cntGaming+"</td><td>"+salGaming+"</td></tr>";
+		document.getElementById("avgSalary").innerHTML=table2;
+	}
+</script>
+</body>
+</html>

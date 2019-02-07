@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Customer FORM</title>
+</head>
+<body>
+	<h1>Customer Details Form</h1>
+	<form action="process.php" method="POST">
+		<div> 
+			<label for="cname">Customer Name</label>
+			<input type="text" name="cname" placeholder="Enter Name">
+		</div>
+		<div> 
+			<label for="caddress">Customer Address</label>
+			<input type="text" name="caddress" placeholder="Enter Address">
+		</div>
+		<div> 
+			<label for="gender">Gender: </label>
+			<input type="radio" name="gender" value="Male">Male
+			<input type="radio" name="gender" value="Female">Female
+		</div>
+		<div> 
+			<label>Languages Known</label><br>
+			<input type="checkbox" name="lang[]" value="C"> C<br>
+			<input type="checkbox" name="lang[]" value="C++">	C++ <br>
+			<input type="checkbox" name="lang[]" value="Java"> Java <br>
+			<input type="checkbox" name="lang[]" value="Python"> Python <br>
+			<input type="checkbox" name="lang[]" value="R"> R <br>
+		</div>
+		<div> 
+			<label for="city">Customer City</label>
+			<input type="text" name="city" placeholder="Enter City">
+		</div>
+		<div>
+		<input type="submit" value="Submit" name="submit">
+		</div>
+	</form>
+
+
+</body>
+</html>

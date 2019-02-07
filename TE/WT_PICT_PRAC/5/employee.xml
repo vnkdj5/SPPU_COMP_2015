@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+<employee>
+	<name>Thor</name>
+	<id>1</id>
+	<department>Computer</department>
+	<salary>200000</salary>
+</employee>
+<employee>
+	<name>Black Widow</name>
+	<id>2</id>
+	<department>Computer</department>
+	<salary>250000</salary>
+</employee>
+<employee>
+	<name>SpiderMan</name>
+	<id>3</id>
+	<department>Computer</department>
+	<salary>150000</salary>
+</employee>
+<employee>
+	<name>Iron Man</name>
+	<id>4</id>
+	<department>Mechanical</department>
+	<salary>200000</salary>
+</employee>
+<employee>
+	<name>Black Panther</name>
+	<id>5</id>
+	<department>Mechanical</department>
+	<salary>300000</salary>
+</employee>
+<employee>
+	<name>Captain America</name>
+	<id>6</id>
+	<department>Gaming</department>
+	<salary>150000</salary>
+</employee>
+<employee>
+	<name>Doctor Strange</name>
+	<id>7</id>
+	<department>Gaming</department>
+	<salary>170000</salary>
+</employee>
+<employee>
+	<name>Hulk</name>
+	<id>8</id>
+	<department>Computer</department>
+	<salary>500000</salary>
+</employee>
+</employees>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Js Calculator</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript">
+	
+	var app=angular.module("calc",[]);
+	app.controller("calcCtrl", function($scope)
+		{
+			$scope.add=function()
+			{
+				var a=Number($scope.num1);
+				var b=Number($scope.num2);
+				$scope.result=a+b;
+			}
+			$scope.sub=function()
+			{
+				var a=Number($scope.num1);
+				var b=Number($scope.num2);
+				$scope.result=a-b;
+			}
+			$scope.mul=function()
+			{
+				var a=Number($scope.num1);
+				var b=Number($scope.num2);
+				$scope.result=a*b;
+
+			}
+			$scope.div=function()
+			{
+				var a=Number($scope.num1);
+				var b=Number($scope.num2);
+				$scope.result=a/b;
+			}
+		});
+</script>
+<style type="text/css">
+	.calc
+	{
+		margin: 20px auto;
+		padding: 10px;
+		border:black solid 6px;
+		border-radius: 5px;
+		text-align: center;
+		width: 300px;
+		height: auto;
+		background-color: #8ec3eb;
+	}
+	.btn
+	{
+		margin: 5px;
+		font-size: 2em;
+		width: 50px;
+		height: auto;
+		background-color: black;
+		color:white;
+	}
+	input[type=text]{
+		height: 25px;
+		margin: 5px;
+	}
+	div p{
+		color: #2a6292;
+	}
+</style>
+</head>
+<body ng-app="calc" ng-controller="calcCtrl">
+<div class="calc">
+<h2>Calculator</h2>
+<div>
+	<input type="text" ng-model="num1" placeholder="First Number">
+	<input type="text" ng-model="num2" placeholder="Second Number">
+</div>
+<input type="text" ng-model="result" placeholder="Result">
+<div>
+	<input type="button" value="+" class="btn" ng-click="add()">
+	<input type="button" value="-" class="btn" ng-click="sub()">
+</div>
+<div>
+	<input type="button" value="*" class="btn" ng-click="mul()">
+	<input type="button" value="/" class="btn" ng-click="div()">
+</div>
+</div>
+</body>
+</html>

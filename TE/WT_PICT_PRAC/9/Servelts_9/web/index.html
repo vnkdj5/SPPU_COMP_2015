@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .form1
+{
+	display: block;
+	width:50%;
+	border: 1px;
+	padding: 8px;
+	margin: 5px;
+	border: 2px solid gray;
+    border-radius: 5px;
+    background: url('mountain.jpg');
+}
+td{
+    padding: 8px;
+}
+.btn1
+{
+height: 40px;
+width: 80%;
+text-align: center;
+margin: 5px;
+padding: 8px;
+font-weight: bold;
+background-color: #4CAF50;
+color: white;
+
+}
+h1
+{
+	color: #4CAF50;
+}
+            </style>
+    </head>
+    <body>
+    <center>
+        <form  method="POST" class="form1" action="First">
+	<center><h1>Register a Product</h1></center>
+        <table width="100%"><tr>
+                <td><label for="pname">Product Name</label></td>
+			<td><input type="text" name="pname" id="pname" placeholder="Enter Name" required></td>
+		</tr>
+		<tr> 
+			<td><label for="productId">Product Id</label></td>
+			<td><input type="number" name="productId" id="productId" placeholder="Enter ID" min="0"  required></td>
+		</tr>
+		<tr> 
+			<td><label for="category">Product Category</label></td>
+			<td><input type="text" name="category" id="category" placeholder="Enter Category"  required></td>
+		</tr>
+		<tr> 
+			<td><label for="description">Enter Description</label></td>
+			<td><input type="text" name="description" id="description" placeholder="Enter Short Description" required></td>
+		</tr>
+		<tr> 
+			<td><label for="price">Price</label></td>
+			<td><input type="number" name="price" id="price" placeholder="00$" min="0" required></td>
+		</tr>
+		<tr> 
+			<td><label for="quantity">Enter Quantity</label></td>
+			<td><input type="number" name="quantity" id="quantity" placeholder="00" min="0"  required></td>
+		</tr>
+		<tr>
+		<td colspan="2" align="center"><input class="btn1" type="submit" value="Submit" name="submit" ></td>
+		</tr>
+        </table>
+	</form>
+    </center>
+    </body>
+</html>
